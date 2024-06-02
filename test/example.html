@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Foundation Well-Being Assessment</title>
+    <style>
+        body {
+            font-family: "VAG", sans-serif;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #6a3a8e;
+            margin: 0;
+            padding: 0;
+        }
+
+        input[type="radio"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #6a3a8e;
+            border-radius: 50%;
+            background-color: transparent;
+            outline: none;
+            cursor: pointer;
+            margin-right: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        input[type="radio"]:checked {
+            background-color: #c473ad;
+            border-color: #c473ad;
+        }
+
+        .foundation-section {
+            display: none;
+            animation: fade-in 1s ease-in-out;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .gray-out {
+            color: gray;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <h1>Foundation Well-Being Assessment</h1>
+    <form id="wellBeingForm">
+    
+        <!-- Sleep and Rest questions -->
+        
+        <section class="foundation-section" id="sleepSection">
+            <h2>Sleep and Rest</h2>
+            <p><strong>1. How well do you sleep?</strong></p>
+            <label><input type="radio" name="sleepQuestion1" value="1"> Very well</label>
+            <label><input type="radio" name="sleepQuestion1" value="2"> Moderately well</label>
+            <label><input type="radio" name="sleepQuestion1" value="3"> Somewhat well</label>
+            <label><input type="radio" name="sleepQuestion1" value="4"> Slightly well</label>
+            <label><input type="radio" name="sleepQuestion1" value="5"> Not well</label>
+
+            <p><strong>2. How often do you wake up during the night?</strong></p>
+            <label><input type="radio" name="sleepQuestion2" value="1"> Rarely</label>
+            <label><input type="radio" name="sleepQuestion2" value="2"> Occasionally</label>
+            <label><input type="radio" name="sleepQuestion2" value="3"> Sometimes</label>
+            <label><input type="radio" name="sleepQuestion2" value="4"> Often</label>
+            <label><input type="radio" name="sleepQuestion2" value="5"> Very often</label>
+
+            <p><strong>3. How rested do you feel in the morning?</strong></p>
+            <label><input type="radio" name="sleepQuestion3" value="1"> Very rested</label>
+            <label><input type="radio" name="sleepQuestion3" value="2"> Moderately rested</label>
+            <label><input type="radio" name="sleepQuestion3" value="3"> Somewhat rested</label>
+            <label><input type="radio" name="sleepQuestion3" value="4"> Slightly rested</label>
+            <label><input type="radio" name="sleepQuestion3" value="5"> Not rested</label>
+
+            <p><strong>4. How often do you have difficulty falling asleep?</strong></p>
+            <label><input type="radio" name="sleepQuestion4" value="1"> Rarely</label>
+            <label><input type="radio" name="sleepQuestion4" value="2"> Occasionally</label>
+            <label><input type="radio" name="sleepQuestion4" value="3"> Sometimes</label>
+            <label><input type="radio" name="sleepQuestion4" value="4"> Often</label>
+            <label><input type="radio" name="sleepQuestion4" value="5"> Very often</label>
+
+            <p><strong>5. How satisfied are you with the quality of your sleep?</strong></p>
+            <label><input type="radio" name="sleepQuestion5" value="1"> Very satisfied</label>
+            <label><input type="radio" name="sleepQuestion5" value="2"> Moderately satisfied</label>
+            <label><input type="radio" name="sleepQuestion5" value="3"> Somewhat satisfied</label>
+            <label><input type="radio" name="sleepQuestion5" value="4"> Slightly satisfied</label>
+            <label><input type="radio" name="sleepQuestion5" value="5"> Not satisfied</label>
+
+        </section>
+        
+        <!-- Food and Drink questions -->
+        <section class="foundation-section" id="foodSection">
+            <h2>Food and Drink</h2>
+            <p><strong>1. How often do you drink alcohol?</strong></p>
+            <label><input type="radio" name="foodQuestion1" value="5"> Every day</label>
+            <label><input type="radio" name="foodQuestion1" value="5"> Most of the week</label>
+            <label><input type="radio" name="foodQuestion1" value="3"> Only with certain meals</label>
+            <label><input type="radio" name="foodQuestion1" value="2"> Twice a week</label>
+            <label><input type="radio" name="foodQuestion1" value="1"> Not at all</label>
+
+            <p><strong>2. How often do you eat fruits and vegetables?</strong></p>
+            <label><input type="radio" name="foodQuestion2" value="1"> Daily</label>
+            <label><input type="radio" name="foodQuestion2" value="2"> Several times a week</label>
+            <label><input type="radio" name="foodQuestion2" value="3"> Occasionally</label>
+            <label><input type="radio" name="foodQuestion2" value="4"> Rarely</label>
+            <label><input type="radio" name="foodQuestion2" value="5"> Almost never</label>
+
+            <p><strong>3. How mindful are you of portion sizes?</strong></p>
+            <label><input type="radio" name="foodQuestion3" value="1"> Very mindful</label>
+            <label><input type="radio" name="foodQuestion3" value="2"> Moderately mindful</label>
+            <label><input type="radio" name="foodQuestion3" value="3"> Somewhat mindful</label>
+            <label><input type="radio" name="foodQuestion3" value="4"> Slightly mindful</label>
+            <label><input type="radio" name="foodQuestion3" value="5"> Not mindful</label>
+
+            <p><strong>4. How often do you consume processed foods?</strong></p>
+            <label><input type="radio" name="foodQuestion4" value="1"> Rarely</label>
+            <label><input type="radio" name="foodQuestion4" value="2"> Occasionally</label>
+            <label><input type="radio" name="foodQuestion4" value="3"> Sometimes</label>
+            <label><input type="radio" name="foodQuestion4" value="4"> Often</label>
+            <label><input type="radio" name="foodQuestion4" value="5"> Very often</label>
+
+            <p><strong>5. How much water do you drink a day?</strong></p>
+            <label><input type="radio" name="foodQuestion5" value="1"> 8 glasses</label>
+            <label><input type="radio" name="foodQuestion5" value="2"> 4 glasses</label>
+            <label><input type="radio" name="foodQuestion5" value="3"> 1 glass</label>
+            <label><input type="radio" name="foodQuestion5" value="4"> Only in tea or coffee</label>
+            <label><input type="radio" name="foodQuestion5" value="5"> I don't know</label>
+
+        </section>
+        
+        <!-- Movement and Energy questions -->
+        <section class="foundation-section" id="movementSection">
+            <h2>Movement and Energy</h2>
+            <p><strong>1. How often do you engage in physical activity?</strong></p>
+            <label><input type="radio" name="movementQuestion1" value="1"> Daily</label>
+            <label><input type="radio" name="movementQuestion1" value="2"> Several times a week</label>
+            <label><input type="radio" name="movementQuestion1" value="3"> Occasionally</label>
+            <label><input type="radio" name="movementQuestion1" value="4"> Rarely</label>
+            <label><input type="radio" name="movementQuestion1" value="5"> Almost never</label>
+
+            <p><strong>2. How do you incorporate movement into your daily routine?</strong></p>
+            <label><input type="radio" name="movementQuestion2" value="1"> Regularly</label>
+            <label><input type="radio" name="movementQuestion2" value="2"> Sometimes</label>
+            <label><input type="radio" name="movementQuestion2" value="3"> Occasionally</label>
+            <label><input type="radio" name="movementQuestion2" value="4"> Rarely</label>
+            <label><input type="radio" name="movementQuestion2" value="5"> Never</label>
+
+            <p><strong>3. How varied is your exercise routine?</strong></p>
+            <label><input type="radio" name="movementQuestion3" value="1"> Very varied</label>
+            <label><input type="radio" name="movementQuestion3" value="2"> Moderately varied</label>
+            <label><input type="radio" name="movementQuestion3" value="3"> Somewhat varied</label>
+            <label><input type="radio" name="movementQuestion3" value="4"> Slightly varied</label>
+            <label><input type="radio" name="movementQuestion3" value="5"> Not varied</label>
+
+            <p><strong>4. Do you feel energised in the day?</strong></p>
+            <label><input type="radio" name="movementQuestion4" value="1"> Energized</label>
+            <label><input type="radio" name="movementQuestion4" value="2"> Positive</label>
+            <label><input type="radio" name="movementQuestion4" value="3"> Neutral</label>
+            <label><input type="radio" name="movementQuestion4" value="4"> Tired</label>
+            <label><input type="radio" name="movementQuestion4" value="5"> Drained</label>
+
+            <p><strong>5. How do you overcome barriers to physical activity?</strong></p>
+            <label><input type="radio" name="movementQuestion5" value="1"> Proactively</label>
+            <label><input type="radio" name="movementQuestion5" value="2"> Occasionally</label>
+            <label><input type="radio" name="movementQuestion5" value="3"> Rarely</label>
+            <label><input type="radio" name="movementQuestion5" value="4"> Never</label>
+            <label><input type="radio" name="movementQuestion5" value="5"> I don't face barriers</label>
+        </section>
+        
+        <!-- Connection and Influence questions -->
+        <section class="foundation-section" id="connectionSection">
+            <h2>Connection and Influence</h2>
+            <p><strong>1. How satisfied are you with your social life?</strong></p>
+            <label><input type="radio" name="connectionQuestion1" value="1"> Very satisfied</label>
+            <label><input type="radio" name="connectionQuestion1" value="2"> Moderately satisfied</label>
+            <label><input type="radio" name="connectionQuestion1" value="3"> Somewhat satisfied</label>
+            <label><input type="radio" name="connectionQuestion1" value="4"> Slightly satisfied</label>
+            <label><input type="radio" name="connectionQuestion1" value="5"> Not satisfied</label>
+
+            <p><strong>2. How often do you engage in meaningful conversations?</strong></p>
+            <label><input type="radio" name="connectionQuestion2" value="1"> Daily</label>
+            <label><input type="radio" name="connectionQuestion2" value="2"> Several times a week</label>
+            <label><input type="radio" name="connectionQuestion2" value="3"> Occasionally</label>
+            <label><input type="radio" name="connectionQuestion2" value="4"> Rarely</label>
+            <label><input type="radio" name="connectionQuestion2" value="5"> Almost never</label>
+
+            <p><strong>3. How well do you handle conflicts in relationships?</strong></p>
+            <label><input type="radio" name="connectionQuestion3" value="1"> Very well</label>
+            <label><input type="radio" name="connectionQuestion3" value="2"> Moderately well</label>
+            <label><input type="radio" name="connectionQuestion3" value="3"> Somewhat well</label>
+            <label><input type="radio" name="connectionQuestion3" value="4"> Slightly well</label>
+            <label><input type="radio" name="connectionQuestion3" value="5"> Not well</label>
+
+            <p><strong>4. How comfortable are you in forming new connections?</strong></p>
+            <label><input type="radio" name="connectionQuestion4" value="1"> Very comfortable</label>
+            <label><input type="radio" name="connectionQuestion4" value="2"> Moderately comfortable</label>
+            <label><input type="radio" name="connectionQuestion4" value="3"> Somewhat comfortable</label>
+            <label><input type="radio" name="connectionQuestion4" value="4"> Slightly comfortable</label>
+            <label><input type="radio" name="connectionQuestion4" value="5"> Not comfortable</label>
+
+            <p><strong>5. How much value do you place what you think you should do for others?</strong></p>
+            <label><input type="radio" name="connectionQuestion5" value="1"> Very high value</label>
+            <label><input type="radio" name="connectionQuestion5" value="2"> High value</label>
+            <label><input type="radio" name="connectionQuestion5" value="3"> Moderate value</label>
+            <label><input type="radio" name="connectionQuestion5" value="4"> Low value</label>
+            <label><input type="radio" name="connectionQuestion5" value="5"> Very low value</label>
+        </section>
+        
+        <!-- Emotional Resilience questions -->
+        <section class="foundation-section" id="emotionalSection">
+            <h2>Emotional Resilience</h2>
+            <p><strong>1. How often do you feel happy?</strong></p>
+            <label><input type="radio" name="emotionalQuestion1" value="1"> Very often</label>
+            <label><input type="radio" name="emotionalQuestion1" value="2"> Often</label>
+            <label><input type="radio" name="emotionalQuestion1" value="3"> Sometimes</label>
+            <label><input type="radio" name="emotionalQuestion1" value="4"> Rarely</label>
+            <label><input type="radio" name="emotionalQuestion1" value="5"> Very rarely</label>
+
+            <p><strong>2. How well do you manage stress?</strong></p>
+            <label><input type="radio" name="emotionalQuestion2" value="1"> Very well</label>
+            <label><input type="radio" name="emotionalQuestion2" value="2"> Moderately well</label>
+            <label><input type="radio" name="emotionalQuestion2" value="3"> Somewhat well</label>
+            <label><input type="radio" name="emotionalQuestion2" value="4"> Slightly well</label>
+            <label><input type="radio" name="emotionalQuestion2" value="5"> Not well</label>
+
+            <p><strong>3. How easily do you experience emotional fluctuations?</strong></p>
+            <label><input type="radio" name="emotionalQuestion3" value="1"> Very easily</label>
+            <label><input type="radio" name="emotionalQuestion3" value="2"> Quite easily</label>
+            <label><input type="radio" name="emotionalQuestion3" value="3"> Sometimes</label>
+            <label><input type="radio" name="emotionalQuestion3" value="4"> Not so easily</label>
+            <label><input type="radio" name="emotionalQuestion3" value="5"> Rarely</label>
+
+            <p><strong>4. How often do you experience moments of joy?</strong></p>
+            <label><input type="radio" name="emotionalQuestion4" value="1"> Very often</label>
+            <label><input type="radio" name="emotionalQuestion4" value="2"> Often</label>
+            <label><input type="radio" name="emotionalQuestion4" value="3"> Sometimes</label>
+            <label><input type="radio" name="emotionalQuestion4" value="4"> Rarely</label>
+            <label><input type="radio" name="emotionalQuestion4" value="5"> Very rarely</label>
+
+            <p><strong>5. How in touch are you with your emotions?</strong></p>
+            <label><input type="radio" name="emotionalQuestion5" value="1"> Very in touch</label>
+            <label><input type="radio" name="emotionalQuestion5" value="2"> Moderately in touch</label>
+            <label><input type="radio" name="emotionalQuestion5" value="3"> Somewhat in touch</label>
+            <label><input type="radio" name="emotionalQuestion5" value="4"> Slightly in touch</label>
+            <label><input type="radio" name="emotionalQuestion5" value="5"> Not in touch</label>
+        </section>
+        
+        <!-- Vulnerability and Responsibility questions -->
+        <section class="foundation-section" id="vulnerabilitySection">
+            <h2>Vulnerability and Responsibility</h2>
+            <p><strong>1. How comfortable are you with expressing your true feelings?</strong></p>
+            <label><input type="radio" name="vulnerabilityQuestion1" value="1"> Very comfortable</label>
+            <label><input type="radio" name="vulnerabilityQuestion1" value="2"> Moderately comfortable</label>
+            <label><input type="radio" name="vulnerabilityQuestion1" value="3"> Somewhat comfortable</label>
+            <label><input type="radio" name="vulnerabilityQuestion1" value="4"> Slightly comfortable</label>
+            <label><input type="radio" name="vulnerabilityQuestion1" value="5"> Not comfortable</label>
+
+            <p><strong>2. How often do you take responsibility for your actions?</strong></p>
+            <label><input type="radio" name="vulnerabilityQuestion2" value="1"> Very often</label>
+            <label><input type="radio" name="vulnerabilityQuestion2" value="2"> Often</label>
+            <label><input type="radio" name="vulnerabilityQuestion2" value="3"> Sometimes</label>
+            <label><input type="radio" name="vulnerabilityQuestion2" value="4"> Rarely</label>
+            <label><input type="radio" name="vulnerabilityQuestion2" value="5"> Very rarely</label>
+
+            <p><strong>3. How open are you to feedback and constructive criticism?</strong></p>
+            <label><input type="radio" name="vulnerabilityQuestion3" value="1"> Very open</label>
+            <label><input type="radio" name="vulnerabilityQuestion3" value="2"> Moderately open</label>
+            <label><input type="radio" name="vulnerabilityQuestion3" value="3"> Somewhat open</label>
+            <label><input type="radio" name="vulnerabilityQuestion3" value="4"> Slightly open</label>
+            <label><input type="radio" name="vulnerabilityQuestion3" value="5"> Not open</label>
+
+            <p><strong>4. How well do you handle admitting mistakes?</strong></p>
+            <label><input type="radio" name="vulnerabilityQuestion4" value="1"> Very well</label>
+            <label><input type="radio" name="vulnerabilityQuestion4" value="2"> Moderately well</label>
+            <label><input type="radio" name="vulnerabilityQuestion4" value="3"> Somewhat well</label>
+            <label><input type="radio" name="vulnerabilityQuestion4" value="4"> Not so well</label>
+            <label><input type="radio" name="vulnerabilityQuestion4" value="5"> Struggle to admit</label>
+
+            <p><strong>5. How willing are you to share your vulnerabilities with others?</strong></p>
+            <label><input type="radio" name="vulnerabilityQuestion5" value="1"> Very willing</label>
+            <label><input type="radio" name="vulnerabilityQuestion5" value="2"> Moderately willing</label>
+            <label><input type="radio" name="vulnerabilityQuestion5" value="3"> Somewhat willing</label>
+            <label><input type="radio" name="vulnerabilityQuestion5" value="4"> Slightly willing</label>
+            <label><input type="radio" name="vulnerabilityQuestion5" value="5"> Not willing</label>
+        </section>
+        
+        <!-- Wealth and Security questions -->
+        <section class="foundation-section" id="WealthSection">
+            <h2>Security and Wealth</h2>
+            <p><strong>1. How confident are you in your financial planning for the future?</strong></p>
+            <label><input type="radio" name="WealthQuestion1" value="1"> Very confident</label>
+            <label><input type="radio" name="WealthQuestion1" value="2"> Moderately confident</label>
+            <label><input type="radio" name="WealthQuestion1" value="3"> Somewhat confident</label>
+            <label><input type="radio" name="WealthQuestion1" value="4"> Slightly confident</label>
+            <label><input type="radio" name="WealthQuestion1" value="5"> Not confident</label>
+
+            <p><strong>2. How satisfied are you with your current financial situation?</strong></p>
+            <label><input type="radio" name="WealthQuestion2" value="1"> Very satisfied</label>
+            <label><input type="radio" name="WealthQuestion2" value="2"> Moderately satisfied</label>
+            <label><input type="radio" name="WealthQuestion2" value="3"> Somewhat satisfied</label>
+            <label><input type="radio" name="WealthQuestion2" value="4"> Slightly satisfied</label>
+            <label><input type="radio" name="WealthQuestion2" value="5"> Not satisfied</label>
+
+            <p><strong>3. How well do you manage your expenses and budget?</strong></p>
+            <label><input type="radio" name="WealthQuestion3" value="1"> Very well</label>
+            <label><input type="radio" name="WealthQuestion3" value="2"> Moderately well</label>
+            <label><input type="radio" name="WealthQuestion3" value="3"> Somewhat well</label>
+            <label><input type="radio" name="WealthQuestion3" value="4"> Not so well</label>
+            <label><input type="radio" name="WealthQuestion3" value="5"> Struggle to manage</label>
+
+            <p><strong>4. How do you feel about your current level of savings?</strong></p>
+            <label><input type="radio" name="WealthQuestion4" value="1"> Very positive</label>
+            <label><input type="radio" name="WealthQuestion4" value="2"> Positive</label>
+            <label><input type="radio" name="WealthQuestion4" value="3"> Neutral</label>
+            <label><input type="radio" name="WealthQuestion4" value="4"> Negative</label>
+            <label><input type="radio" name="WealthQuestion4" value="5"> Very negative</label>
+
+            <p><strong>5. How important is financial security to you?</strong></p>
+            <label><input type="radio" name="WealthQuestion5" value="1"> Extremely important</label>
+            <label><input type="radio" name="WealthQuestion5" value="2"> Very important</label>
+            <label><input type="radio" name="WealthQuestion5" value="3"> Moderately important</label>
+            <label><input type="radio" name="WealthQuestion5" value="4"> Slightly important</label>
+            <label><input type="radio" name="WealthQuestion5" value="5"> Not important</label>
+        </section>
+        
+        <!-- Purpose and Self-Worth questions -->
+        <section class="foundation-section" id="purposeSection">
+            <h2>Purpose and Self-Worth</h2>
+            <p><strong>1. Do you feel like you have a clear sense of purpose in life?</strong></p>
+            <label><input type="radio" name="purposeQuestion1" value="1"> Very clear</label>
+            <label><input type="radio" name="purposeQuestion1" value="2"> Somewhat clear</label>
+            <label><input type="radio" name="purposeQuestion1" value="3"> Neutral</label>
+            <label><input type="radio" name="purposeQuestion1" value="4"> Somewhat unclear</label>
+            <label><input type="radio" name="purposeQuestion1" value="5"> Very unclear</label>
+
+            <p><strong>2. How often do you engage in activities that align with your personal values?</strong></p>
+            <label><input type="radio" name="purposeQuestion2" value="1"> Very often</label>
+            <label><input type="radio" name="purposeQuestion2" value="2"> Often</label>
+            <label><input type="radio" name="purposeQuestion2" value="3"> Occasionally</label>
+            <label><input type="radio" name="purposeQuestion2" value="4"> Rarely</label>
+            <label><input type="radio" name="purposeQuestion2" value="5"> Almost never</label>
+
+            <p><strong>3. How satisfied are you with your current achievements and contributions?</strong></p>
+            <label><input type="radio" name="purposeQuestion3" value="1"> Very satisfied</label>
+            <label><input type="radio" name="purposeQuestion3" value="2"> Moderately satisfied</label>
+            <label><input type="radio" name="purposeQuestion3" value="3"> Neutral</label>
+            <label><input type="radio" name="purposeQuestion3" value="4"> Somewhat dissatisfied</label>
+            <label><input type="radio" name="purposeQuestion3" value="5"> Very dissatisfied</label>
+
+            <p><strong>4. How much do you rely on external validation for your self-worth?</strong></p>
+            <label><input type="radio" name="purposeQuestion4" value="1"> Not at all</label>
+            <label><input type="radio" name="purposeQuestion4" value="2"> Very little</label>
+            <label><input type="radio" name="purposeQuestion4" value="3"> Somewhat</label>
+            <label><input type="radio" name="purposeQuestion4" value="4"> Quite a bit</label>
+            <label><input type="radio" name="purposeQuestion4" value="5"> A great deal</label>
+
+            <p><strong>5. How much do you prioritize self-care and personal growth in your life?</strong></p>
+            <label><input type="radio" name="purposeQuestion5" value="1"> Extremely high</label>
+            <label><input type="radio" name="purposeQuestion5" value="2"> Very high</label>
+            <label><input type="radio" name="purposeQuestion5" value="3"> Moderately</label>
+            <label><input type="radio" name="purposeQuestion5" value="4"> Somewhat low</label>
+            <label><input type="radio" name="purposeQuestion5" value="5"> Very low</label>
+                    </section>
+                    
+        <!-- Environment and Belonging questions -->
+        <section class="foundation-section" id="environmentBelongingSection">
+            <h2>Environment and Belonging</h2>
+            <p><strong>1. How often do you spend time in nature or outdoor environments?</strong></p>
+            <label><input type="radio" name="environmentBelongingQuestion1" value="1"> Very often</label>
+            <label><input type="radio" name="environmentBelongingQuestion1" value="2"> Often</label>
+            <label><input type="radio" name="environmentBelongingQuestion1" value="3"> Occasionally</label>
+            <label><input type="radio" name="environmentBelongingQuestion1" value="4"> Rarely</label>
+            <label><input type="radio" name="environmentBelongingQuestion1" value="5"> Almost never</label>
+
+            <p><strong>2. How connected do you feel to your local community and neighbours?</strong></p>
+            <label><input type="radio" name="environmentBelongingQuestion2" value="1"> Very connected</label>
+            <label><input type="radio" name="environmentBelongingQuestion2" value="2"> Moderately connected</label>
+            <label><input type="radio" name="environmentBelongingQuestion2" value="3"> Neutral</label>
+            <label><input type="radio" name="environmentBelongingQuestion2" value="4"> Somewhat disconnected</label>
+            <label><input type="radio" name="environmentBelongingQuestion2" value="5"> Very disconnected</label>
+
+            <p><strong>3. How well do you feel you belong in your current living environment?</strong></p>
+            <label><input type="radio" name="environmentBelongingQuestion3" value="1"> Very well</label>
+            <label><input type="radio" name="environmentBelongingQuestion3" value="2"> Moderately well</label>
+            <label><input type="radio" name="environmentBelongingQuestion3" value="3"> Neutral</label>
+            <label><input type="radio" name="environmentBelongingQuestion3" value="4"> Somewhat poorly</label>
+            <label><input type="radio" name="environmentBelongingQuestion3" value="5"> Very poorly</label>
+
+            <p><strong>4. How important is it for you to live in a place that aligns with your values?</strong></p>
+            <label><input type="radio" name="environmentBelongingQuestion4" value="1"> Extremely important</label>
+            <label><input type="radio" name="environmentBelongingQuestion4" value="2"> Very important</label>
+            <label><input type="radio" name="environmentBelongingQuestion4" value="3"> Moderately important</label>
+            <label><input type="radio" name="environmentBelongingQuestion4" value="4"> Slightly important</label>
+            <label><input type="radio" name="environmentBelongingQuestion4" value="5"> Not important at all</label>
+
+            <p><strong>5. How much do you actively contribute to the well-being of your living environment?</strong>
+            </p>
+            <label><input type="radio" name="environmentBelongingQuestion5" value="1"> A great deal</label>
+            <label><input type="radio" name="environmentBelongingQuestion5" value="2"> Quite a bit</label>
+            <label><input type="radio" name="environmentBelongingQuestion5" value="3"> Moderately</label>
+            <label><input type="radio" name="environmentBelongingQuestion5" value="4"> Somewhat</label>
+            <label><input type="radio" name="environmentBelongingQuestion5" value="5"> Very little or none</label>
+        </section>
+        
+        <!-- Self-Awareness questions -->
+        <section class="foundation-section" id="selfAwarenessSection">
+            <h2>Self-Awareness</h2>
+            <p><strong>1. How well do you understand your own emotions?</strong></p>
+            <label><input type="radio" name="selfAwarenessQuestion1" value="1"> Very well</label>
+            <label><input type="radio" name="selfAwarenessQuestion1" value="2"> Somewhat well</label>
+            <label><input type="radio" name="selfAwarenessQuestion1" value="3"> Neutral</label>
+            <label><input type="radio" name="selfAwarenessQuestion1" value="4"> Not very well</label>
+            <label><input type="radio" name="selfAwarenessQuestion1" value="5"> Not at all</label>
+
+            <p><strong>2. How often do you engage in self-reflection?</strong></p>
+            <label><input type="radio" name="selfAwarenessQuestion2" value="1"> Daily</label>
+            <label><input type="radio" name="selfAwarenessQuestion2" value="2"> Several times a week</label>
+            <label><input type="radio" name="selfAwarenessQuestion2" value="3"> Occasionally</label>
+            <label><input type="radio" name="selfAwarenessQuestion2" value="4"> Rarely</label>
+            <label><input type="radio" name="selfAwarenessQuestion2" value="5"> Almost never</label>
+
+            <p><strong>3. How open are you to receiving feedback about yourself?</strong></p>
+            <label><input type="radio" name="selfAwarenessQuestion3" value="1"> Very open</label>
+            <label><input type="radio" name="selfAwarenessQuestion3" value="2"> Somewhat open</label>
+            <label><input type="radio" name="selfAwarenessQuestion3" value="3"> Neutral</label>
+            <label><input type="radio" name="selfAwarenessQuestion3" value="4"> Not very open</label>
+            <label><input type="radio" name="selfAwarenessQuestion3" value="5"> Not at all open</label>
+
+            <p><strong>4. How aware are you of your strengths and weaknesses?</strong></p>
+            <label><input type="radio" name="selfAwarenessQuestion4" value="1"> Very aware</label>
+            <label><input type="radio" name="selfAwarenessQuestion4" value="2"> Moderately aware</label>
+            <label><input type="radio" name="selfAwarenessQuestion4" value="3"> Neutral</label>
+            <label><input type="radio" name="selfAwarenessQuestion4" value="4"> Not very aware</label>
+            <label><input type="radio" name="selfAwarenessQuestion4" value="5"> Not at all aware</label>
+
+            <p><strong>5. How well do you recognise patterns in your thoughts and behaviours?</strong></p>
+            <label><input type="radio" name="selfAwarenessQuestion5" value="1"> Very well</label>
+            <label><input type="radio" name="selfAwarenessQuestion5" value="2"> Somewhat well</label>
+            <label><input type="radio" name="selfAwarenessQuestion5" value="3"> Neutral</label>
+            <label><input type="radio" name="selfAwarenessQuestion5" value="4"> Not very well</label>
+            <label><input type="radio" name="selfAwarenessQuestion5" value="5"> Not at all well</label>
+        </section>
+        <!-- Add sections for other foundations ... -->
+    </form>
+    <div id="chartContainer">
+        <canvas id="myChart"></canvas>
+    </div>
+
+<script>
+    const sections = document.querySelectorAll(".foundation-section");
+    let currentSectionIndex = 0;
+
+    function calculateScores() {
+        const form = document.getElementById("wellBeingForm");
+        const sectionScores = {};
+
+        for (let i = 0; i < form.elements.length; i++) {
+            const element = form.elements[i];
+            if (element.type === "radio" && element.checked) {
+                const sectionName = element.name.split("Question")[0]; // Extract foundation name from the question name
+                const score = parseInt(element.value);
+
+                if (sectionScores.hasOwnProperty(sectionName)) {
+                    sectionScores[sectionName] += score;
+                } else {
+                    sectionScores[sectionName] = score;
+                }
+            }
+        }
+        const scoreArray = Object.values(sectionScores);
+        return scoreArray;
+    }
+
+    function allQuestionsAnswered(sectionIndex) {
+        const section = sections[sectionIndex];
+        const radios = section.querySelectorAll("input[type='radio']");
+        const radioGroups = {};
+
+        radios.forEach((radio) => {
+            const name = radio.name;
+            if (!radioGroups[name]) radioGroups[name] = [];
+            radioGroups[name].push(radio);
+        });
+
+        return Object.values(radioGroups).every((group) =>
+            group.some((radio) => radio.checked)
+        );
+    }
+
+    function showNextSection() {
+        if (allQuestionsAnswered(currentSectionIndex)) {
+            sections[currentSectionIndex].style.display = "none";
+            currentSectionIndex++;
+            if (currentSectionIndex < sections.length) {
+                sections[currentSectionIndex].style.display = "block";
+            } else {
+                const scores = calculateScores();
+                generateChart(scores);
+            }
+        }
+    }
+
+    function generateChart(scores) {
+        const labels = ["Sleep & Rest", "Food & Drink", "Movement & Energy", "Connection & Influence", "Emotional Resilience", "Wealth & Security", "Vulnerability & Responsibility", "Environment & Belonging", "Purpose & Self- worth", "Self-Awareness"];
+        const ctx = document.getElementById("myChart").getContext("2d");
+        const myChart = new Chart(ctx, {
+            type: "radar",
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: "Well-Being Scores",
+                    data: scores,
+                    backgroundColor: "rgba(225, 0, 0, 0.2)",
+                    borderColor: "rgba(225, 0, 0, 1)",
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+
+    const radioButtons = document.querySelectorAll("input[type='radio']");
+    radioButtons.forEach((button) => {
+        button.addEventListener("change", showNextSection);
+    });
+
+    sections[currentSectionIndex].style.display = "block";
+</script>
+
+
+</body>
+
+</html>
+
