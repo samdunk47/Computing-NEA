@@ -1,0 +1,48 @@
+#questionnaire {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#questionnaire h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.question label {
+    font-weight: bold;
+}
+
+.question input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+#questionnaire-title {
+    font-size: 40px;
+    margin: 20px;
+    font-weight: bold;
+
+}

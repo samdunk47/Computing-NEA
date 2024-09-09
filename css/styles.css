@@ -1,1 +1,134 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+}
 
+#header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    vertical-align: middle;
+    line-height: 50px;
+    height: 50px;
+}
+
+#page-title {
+    margin: 0;
+    font-size: 35px;
+    position: relative;
+    align-items: center;
+    left: 0px;
+    float: left;
+}
+
+#page-title-container {
+    position: relative;
+    float: left;
+}
+
+#page-title-container:hover {
+    cursor: pointer;
+}
+
+#profile-icon-container {
+    position: relative;
+    float: right;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+}
+
+#profile-icon-container:hover {
+    cursor: pointer;
+}
+
+#profile-icon {
+    /* position: relative;
+    float: right;
+    font-size: 30px;
+    margin-right: 10px;
+    top: 9px; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+}
+
+#profile-popup-box {
+    visibility: hidden;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 200px;
+    height: 250px;
+    background-color: #888;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#boxes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: top;
+    align-items: left;
+    margin: 5px;
+}
+
+.box {
+    width: 300px;
+    height: 200px;
+    background-color: #666;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.box:hover {
+    cursor: pointer;
+}
+
+#box-1 {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+#box-1:hover {
+    background-color: rgba(255, 0, 0, 0.7);
+}
+
+#box-2 {
+    background-color: rgba(0, 255, 0, 1);
+}
+
+#box-2:hover {
+    background-color: rgba(0, 255, 0, 0.7);
+}
+
+#box-3 {
+    background-color: rgba(0, 0, 255, 1);
+}
+
+#box-3:hover {
+    background-color: rgba(0, 0, 255, 0.7);
+}
+
+#box-4 {
+    background-color: rgba(255, 0, 255, 1);
+}
+
+#box-4:hover {
+    background-color: rgba(255, 0, 255, 0.7);
+}
+
+.box-text {
+    color: #fff;
+    font-size: 50px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    line-height: 200px;
+}
